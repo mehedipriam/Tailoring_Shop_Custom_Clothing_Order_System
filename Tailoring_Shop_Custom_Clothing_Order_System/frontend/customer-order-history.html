@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order History — Tailor Bhai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dash">
+
+  <div class="dash-shell">
+    <div class="dash-mobile-topbar">
+      <button type="button" class="dash-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <span class="dash-mobile-topbar__brand">Tailor Bhai</span>
+    </div>
+    <div class="dash-backdrop"></div>
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar__header">
+        <p class="dash-sidebar__brand">Tailor Bhai</p>
+        <p class="dash-sidebar__sub">My Account</p>
+      </div>
+
+      <nav class="dash-nav">
+        <a href="customer-dashboard.html" class="dash-nav__item">
+          <span class="dash-nav__icon">🏠</span>
+          <span class="dash-nav__label">Dashboard</span>
+        </a>
+        <a href="customer-new-order.html" class="dash-nav__item">
+          <span class="dash-nav__icon">✂️</span>
+          <span class="dash-nav__label">New Order</span>
+        </a>
+        <a href="customer-track-order.html" class="dash-nav__item">
+          <span class="dash-nav__icon">📍</span>
+          <span class="dash-nav__label">Track Order</span>
+        </a>
+        <a href="customer-measurements.html" class="dash-nav__item">
+          <span class="dash-nav__icon">📏</span>
+          <span class="dash-nav__label">Measurements</span>
+        </a>
+        <a href="customer-chat.html" class="dash-nav__item">
+          <span class="dash-nav__icon">💬</span>
+          <span class="dash-nav__label">Chat</span>
+        </a>
+        <a href="customer-payment.html" class="dash-nav__item">
+          <span class="dash-nav__icon">💳</span>
+          <span class="dash-nav__label">Payment</span>
+        </a>
+        <a href="customer-rate-order.html" class="dash-nav__item">
+          <span class="dash-nav__icon">⭐</span>
+          <span class="dash-nav__label">Rate Order</span>
+        </a>
+        <a href="customer-order-history.html" class="dash-nav__item dash-nav__item--active">
+          <span class="dash-nav__icon">📋</span>
+          <span class="dash-nav__label">Order History</span>
+        </a>
+      </nav>
+
+      <div class="dash-sidebar__footer">
+        <a href="index.html" class="dash-signout">
+          <span class="dash-signout__icon">→</span>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="dash-main">
+      <div class="flow-page flow-page--wide">
+        <h1 class="flow-title" style="margin-bottom:24px">Order History</h1>
+
+        <div class="history-list" id="historyList">
+          <article class="history-card wizard-card" data-id="ORD-2841" data-type="Navy Wool Suit" data-tailor="James Okonkwo" data-date="Jul 18, 2026" data-price="৳820" data-status="sewing">
+            <div class="history-card__top">
+              <div class="history-card__id-row">
+                <span class="history-card__id">ORD-2841</span>
+                <span class="badge badge--terra">Sewing</span>
+              </div>
+              <span class="history-card__price">৳820</span>
+            </div>
+            <div class="history-card__bottom">
+              <div>
+                <div class="history-card__name">Navy Wool Suit</div>
+                <div class="history-card__meta">By James Okonkwo · Ordered Jul 18, 2026</div>
+              </div>
+              <div style="display:flex; gap:8px"></div>
+            </div>
+          </article>
+
+          <article class="history-card wizard-card" data-id="ORD-2734" data-type="Charcoal Trousers" data-tailor="James Okonkwo" data-date="Jun 30, 2026" data-price="৳180" data-status="delivered">
+            <div class="history-card__top">
+              <div class="history-card__id-row">
+                <span class="history-card__id">ORD-2734</span>
+                <span class="badge badge--success">Delivered</span>
+              </div>
+              <span class="history-card__price">৳180</span>
+            </div>
+            <div class="history-card__bottom">
+              <div>
+                <div class="history-card__name">Charcoal Trousers</div>
+                <div class="history-card__meta">By James Okonkwo · Ordered Jun 30, 2026</div>
+              </div>
+              <div style="display:flex; gap:8px">
+                <button type="button" class="order-btn order-btn--outline js-invoice-btn">⬇ Invoice</button>
+                <a href="customer-rate-order.html" class="order-btn order-btn--ghost">Rate</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="history-card wizard-card" data-id="ORD-2681" data-type="Oxford Blue Shirt × 3" data-tailor="Maria Santos" data-date="Jun 10, 2026" data-price="৳390" data-status="delivered">
+            <div class="history-card__top">
+              <div class="history-card__id-row">
+                <span class="history-card__id">ORD-2681</span>
+                <span class="badge badge--success">Delivered</span>
+              </div>
+              <span class="history-card__price">৳390</span>
+            </div>
+            <div class="history-card__bottom">
+              <div>
+                <div class="history-card__name">Oxford Blue Shirt × 3</div>
+                <div class="history-card__meta">By Maria Santos · Ordered Jun 10, 2026</div>
+              </div>
+              <div style="display:flex; gap:8px">
+                <button type="button" class="order-btn order-btn--outline js-invoice-btn">⬇ Invoice</button>
+                <a href="customer-rate-order.html" class="order-btn order-btn--ghost">Rate</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="history-card wizard-card" data-id="ORD-2540" data-type="Burgundy Evening Dress" data-tailor="Priya Nair" data-date="Apr 22, 2026" data-price="৳310" data-status="delivered">
+            <div class="history-card__top">
+              <div class="history-card__id-row">
+                <span class="history-card__id">ORD-2540</span>
+                <span class="badge badge--success">Delivered</span>
+              </div>
+              <span class="history-card__price">৳310</span>
+            </div>
+            <div class="history-card__bottom">
+              <div>
+                <div class="history-card__name">Burgundy Evening Dress</div>
+                <div class="history-card__meta">By Priya Nair · Ordered Apr 22, 2026</div>
+              </div>
+              <div style="display:flex; gap:8px">
+                <button type="button" class="order-btn order-btn--outline js-invoice-btn">⬇ Invoice</button>
+                <a href="customer-rate-order.html" class="order-btn order-btn--ghost">Rate</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="history-card wizard-card" data-id="ORD-2421" data-type="Cream Linen Suit" data-tailor="James Okonkwo" data-date="Mar 5, 2026" data-price="৳640" data-status="delivered">
+            <div class="history-card__top">
+              <div class="history-card__id-row">
+                <span class="history-card__id">ORD-2421</span>
+                <span class="badge badge--success">Delivered</span>
+              </div>
+              <span class="history-card__price">৳640</span>
+            </div>
+            <div class="history-card__bottom">
+              <div>
+                <div class="history-card__name">Cream Linen Suit</div>
+                <div class="history-card__meta">By James Okonkwo · Ordered Mar 5, 2026</div>
+              </div>
+              <div style="display:flex; gap:8px">
+                <button type="button" class="order-btn order-btn--outline js-invoice-btn">⬇ Invoice</button>
+                <a href="customer-rate-order.html" class="order-btn order-btn--ghost">Rate</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Invoice modal -->
+  <div class="modal-overlay" id="invoiceOverlay">
+    <div class="invoice-modal">
+      <div class="invoice-modal__head">
+        <h3 class="invoice-modal__title">Invoice Preview</h3>
+        <button type="button" class="invoice-modal__close" id="invoiceClose">✕</button>
+      </div>
+      <div class="invoice-modal__body">
+        <div class="invoice-modal__brand">
+          <div class="invoice-modal__brand-name">Tailor Bhai</div>
+          <div class="invoice-modal__brand-addr">Ground floor, beside Grand Post Office, Dhaka · tailorbhai@gmail.com</div>
+          <div class="invoice-modal__number" id="invoiceNumber">INVOICE #ORD-0000</div>
+        </div>
+        <div class="receipt-rows">
+          <div class="receipt-row"><span>Customer</span><span>Alexandra Harrington</span></div>
+          <div class="receipt-row"><span>Garment</span><span id="invoiceGarment"></span></div>
+          <div class="receipt-row"><span>Tailor</span><span id="invoiceTailor"></span></div>
+          <div class="receipt-row"><span>Order Date</span><span id="invoiceDate"></span></div>
+          <div class="receipt-row"><span>Paid Date</span><span id="invoicePaidDate"></span></div>
+        </div>
+        <div class="receipt-total">
+          <span>Total Paid</span>
+          <span id="invoicePrice"></span>
+        </div>
+        <div class="invoice-actions" style="margin-top:20px">
+          <button type="button" class="wizard-btn wizard-btn--outline" style="flex:1" onclick="window.print()">🖨 Print</button>
+          <button type="button" class="wizard-btn wizard-btn--outline" style="flex:1">⬇ Download PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo role switcher -->
+  <div class="demo-switcher">
+    <span class="demo-switcher__label">Demo</span>
+    <a href="index.html" class="demo-switcher__item" aria-label="Guest" title="Guest">
+      <span class="demo-switcher__icon">👤</span><span class="demo-switcher__text">Guest</span>
+    </a>
+    <a href="customer-dashboard.html" class="demo-switcher__item demo-switcher__item--active" aria-label="Customer" title="Customer">
+      <span class="demo-switcher__icon">🧵</span><span class="demo-switcher__text">Customer</span>
+    </a>
+    <a href="tailor-dashboard.html" class="demo-switcher__item" aria-label="Tailor" title="Tailor">
+      <span class="demo-switcher__icon">✂️</span><span class="demo-switcher__text">Tailor</span>
+    </a>
+    <a href="delivery-dashboard.html" class="demo-switcher__item" aria-label="Delivery" title="Delivery">
+      <span class="demo-switcher__icon">🚚</span><span class="demo-switcher__text">Delivery</span>
+    </a>
+    <a href="#admin" class="demo-switcher__item" aria-label="Admin" title="Admin">
+      <span class="demo-switcher__icon">⚙️</span><span class="demo-switcher__text">Admin</span>
+    </a>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/dash-sidebar.js"></script>
+  <script src="js/customer-order-history.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Tracking — Tailor Bhai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dash">
+
+  <div class="dash-shell">
+    <div class="dash-mobile-topbar">
+      <button type="button" class="dash-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <span class="dash-mobile-topbar__brand">Tailor Bhai</span>
+    </div>
+    <div class="dash-backdrop"></div>
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar__header">
+        <p class="dash-sidebar__brand">Tailor Bhai</p>
+        <p class="dash-sidebar__sub">My Account</p>
+      </div>
+
+      <nav class="dash-nav">
+        <a href="customer-dashboard.html" class="dash-nav__item">
+          <span class="dash-nav__icon">🏠</span>
+          <span class="dash-nav__label">Dashboard</span>
+        </a>
+        <a href="customer-new-order.html" class="dash-nav__item">
+          <span class="dash-nav__icon">✂️</span>
+          <span class="dash-nav__label">New Order</span>
+        </a>
+        <a href="customer-track-order.html" class="dash-nav__item dash-nav__item--active">
+          <span class="dash-nav__icon">📍</span>
+          <span class="dash-nav__label">Track Order</span>
+        </a>
+        <a href="customer-measurements.html" class="dash-nav__item">
+          <span class="dash-nav__icon">📏</span>
+          <span class="dash-nav__label">Measurements</span>
+        </a>
+        <a href="customer-chat.html" class="dash-nav__item">
+          <span class="dash-nav__icon">💬</span>
+          <span class="dash-nav__label">Chat</span>
+        </a>
+        <a href="customer-payment.html" class="dash-nav__item">
+          <span class="dash-nav__icon">💳</span>
+          <span class="dash-nav__label">Payment</span>
+        </a>
+        <a href="customer-rate-order.html" class="dash-nav__item">
+          <span class="dash-nav__icon">⭐</span>
+          <span class="dash-nav__label">Rate Order</span>
+        </a>
+        <a href="customer-order-history.html" class="dash-nav__item">
+          <span class="dash-nav__icon">📋</span>
+          <span class="dash-nav__label">Order History</span>
+        </a>
+      </nav>
+
+      <div class="dash-sidebar__footer">
+        <a href="index.html" class="dash-signout">
+          <span class="dash-signout__icon">→</span>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="dash-main">
+      <div class="flow-page">
+        <h1 class="flow-title">Order Tracking</h1>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px">
+          <span style="font-family:var(--font-mono); font-size:14px; color:var(--color-grey-44)">ORD-2734</span>
+          <span class="badge badge--success">Delivered</span>
+        </div>
+
+        <div class="wizard-card" style="margin-bottom:24px">
+          <div class="order-stepper">
+            <div class="order-stepper__step order-stepper__step--done">
+              <div class="order-stepper__node">
+                <div class="order-stepper__circle">✓</div>
+                <span class="order-stepper__label">Ordered</span>
+              </div>
+              <div class="order-stepper__connector"></div>
+            </div>
+            <div class="order-stepper__step order-stepper__step--done">
+              <div class="order-stepper__node">
+                <div class="order-stepper__circle">✓</div>
+                <span class="order-stepper__label">Cutting</span>
+              </div>
+              <div class="order-stepper__connector"></div>
+            </div>
+            <div class="order-stepper__step order-stepper__step--done">
+              <div class="order-stepper__node">
+                <div class="order-stepper__circle">✓</div>
+                <span class="order-stepper__label">Sewing</span>
+              </div>
+              <div class="order-stepper__connector"></div>
+            </div>
+            <div class="order-stepper__step order-stepper__step--done">
+              <div class="order-stepper__node">
+                <div class="order-stepper__circle">✓</div>
+                <span class="order-stepper__label">Finishing</span>
+              </div>
+              <div class="order-stepper__connector"></div>
+            </div>
+            <div class="order-stepper__step order-stepper__step--done">
+              <div class="order-stepper__node">
+                <div class="order-stepper__circle">✓</div>
+                <span class="order-stepper__label">Ready</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="status-panel status-panel--success">
+            <div class="status-panel__title">✓ Order Delivered</div>
+            <p class="status-panel__text">Your Charcoal Trousers were delivered on Jul 25, 2026 at 2:41 PM by Carlos Mendez.</p>
+
+            <div class="pod">
+              <div class="pod__label">Proof of Delivery</div>
+              <div class="pod__image-wrap">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=300&fit=crop&auto=format" alt="Proof of delivery">
+                <span class="pod__caption">Jul 25, 2026 · 2:41 PM · Carlos Mendez</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="wizard-panel__title" style="margin-bottom:12px">Progress Timeline</h2>
+        <div class="timeline">
+          <div class="timeline-item timeline-item--done">
+            <div class="timeline-item__rail">
+              <div class="timeline-item__dot"></div>
+              <div class="timeline-item__line"></div>
+            </div>
+            <div class="timeline-item__body">
+              <div class="timeline-item__event">Order placed and confirmed</div>
+              <div class="timeline-item__date">Jun 30, 2026 — 9:14 AM</div>
+            </div>
+          </div>
+          <div class="timeline-item timeline-item--done">
+            <div class="timeline-item__rail">
+              <div class="timeline-item__dot"></div>
+              <div class="timeline-item__line"></div>
+            </div>
+            <div class="timeline-item__body">
+              <div class="timeline-item__event">Fabric cut by James Okonkwo</div>
+              <div class="timeline-item__date">Jul 1, 2026 — 10:30 AM</div>
+            </div>
+          </div>
+          <div class="timeline-item timeline-item--done">
+            <div class="timeline-item__rail">
+              <div class="timeline-item__dot"></div>
+              <div class="timeline-item__line"></div>
+            </div>
+            <div class="timeline-item__body">
+              <div class="timeline-item__event">Sewing started</div>
+              <div class="timeline-item__date">Jul 3, 2026 — 2:05 PM</div>
+            </div>
+          </div>
+          <div class="timeline-item timeline-item--done">
+            <div class="timeline-item__rail">
+              <div class="timeline-item__dot"></div>
+              <div class="timeline-item__line"></div>
+            </div>
+            <div class="timeline-item__body">
+              <div class="timeline-item__event">Finishing &amp; quality check</div>
+              <div class="timeline-item__date">Jul 10, 2026 — 11:20 AM</div>
+            </div>
+          </div>
+          <div class="timeline-item timeline-item--done">
+            <div class="timeline-item__rail">
+              <div class="timeline-item__dot"></div>
+              <div class="timeline-item__line"></div>
+            </div>
+            <div class="timeline-item__body">
+              <div class="timeline-item__event">Ready for delivery — dispatched</div>
+              <div class="timeline-item__date">Jul 20, 2026 — 9:00 AM</div>
+            </div>
+          </div>
+          <div class="timeline-item timeline-item--done">
+            <div class="timeline-item__rail">
+              <div class="timeline-item__dot"></div>
+            </div>
+            <div class="timeline-item__body">
+              <div class="timeline-item__event">Delivered to customer</div>
+              <div class="timeline-item__date">Jul 25, 2026 — 2:41 PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Demo role switcher -->
+  <div class="demo-switcher">
+    <span class="demo-switcher__label">Demo</span>
+    <a href="index.html" class="demo-switcher__item" aria-label="Guest" title="Guest">
+      <span class="demo-switcher__icon">👤</span><span class="demo-switcher__text">Guest</span>
+    </a>
+    <a href="customer-dashboard.html" class="demo-switcher__item demo-switcher__item--active" aria-label="Customer" title="Customer">
+      <span class="demo-switcher__icon">🧵</span><span class="demo-switcher__text">Customer</span>
+    </a>
+    <a href="tailor-dashboard.html" class="demo-switcher__item" aria-label="Tailor" title="Tailor">
+      <span class="demo-switcher__icon">✂️</span><span class="demo-switcher__text">Tailor</span>
+    </a>
+    <a href="delivery-dashboard.html" class="demo-switcher__item" aria-label="Delivery" title="Delivery">
+      <span class="demo-switcher__icon">🚚</span><span class="demo-switcher__text">Delivery</span>
+    </a>
+    <a href="#admin" class="demo-switcher__item" aria-label="Admin" title="Admin">
+      <span class="demo-switcher__icon">⚙️</span><span class="demo-switcher__text">Admin</span>
+    </a>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/dash-sidebar.js"></script>
+</body>
+</html>

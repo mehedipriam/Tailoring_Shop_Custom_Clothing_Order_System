@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place New Order — Tailor Bhai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dash">
+
+  <div class="dash-shell">
+    <div class="dash-mobile-topbar">
+      <button type="button" class="dash-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <span class="dash-mobile-topbar__brand">Tailor Bhai</span>
+    </div>
+    <div class="dash-backdrop"></div>
+    <!-- Sidebar -->
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar__header">
+        <p class="dash-sidebar__brand">Tailor Bhai</p>
+        <p class="dash-sidebar__sub">My Account</p>
+      </div>
+
+      <nav class="dash-nav">
+        <a href="customer-dashboard.html" class="dash-nav__item">
+          <span class="dash-nav__icon">🏠</span>
+          <span class="dash-nav__label">Dashboard</span>
+        </a>
+        <a href="customer-new-order.html" class="dash-nav__item dash-nav__item--active">
+          <span class="dash-nav__icon">✂️</span>
+          <span class="dash-nav__label">New Order</span>
+        </a>
+        <a href="customer-track-order.html" class="dash-nav__item">
+          <span class="dash-nav__icon">📍</span>
+          <span class="dash-nav__label">Track Order</span>
+        </a>
+        <a href="customer-measurements.html" class="dash-nav__item">
+          <span class="dash-nav__icon">📏</span>
+          <span class="dash-nav__label">Measurements</span>
+        </a>
+        <a href="customer-chat.html" class="dash-nav__item">
+          <span class="dash-nav__icon">💬</span>
+          <span class="dash-nav__label">Chat</span>
+        </a>
+        <a href="customer-payment.html" class="dash-nav__item">
+          <span class="dash-nav__icon">💳</span>
+          <span class="dash-nav__label">Payment</span>
+        </a>
+        <a href="customer-rate-order.html" class="dash-nav__item">
+          <span class="dash-nav__icon">⭐</span>
+          <span class="dash-nav__label">Rate Order</span>
+        </a>
+        <a href="customer-order-history.html" class="dash-nav__item">
+          <span class="dash-nav__icon">📋</span>
+          <span class="dash-nav__label">Order History</span>
+        </a>
+      </nav>
+
+      <div class="dash-sidebar__footer">
+        <a href="index.html" class="dash-signout">
+          <span class="dash-signout__icon">→</span>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="dash-main">
+      <div class="flow-page">
+        <div class="flow-header">
+          <h1 class="flow-title">Place New Order</h1>
+          <p class="flow-subtitle">Custom garment made to your specifications</p>
+        </div>
+
+        <!-- Step indicator -->
+        <div class="wizard-steps" id="wizardSteps">
+          <div class="wizard-step wizard-step--active" data-step="1">
+            <div class="wizard-step__node">
+              <div class="wizard-step__circle">1</div>
+              <span class="wizard-step__label">Garment &amp; Fabric</span>
+            </div>
+            <div class="wizard-step__connector"></div>
+          </div>
+          <div class="wizard-step" data-step="2">
+            <div class="wizard-step__node">
+              <div class="wizard-step__circle">2</div>
+              <span class="wizard-step__label">Schedule &amp; Profile</span>
+            </div>
+            <div class="wizard-step__connector"></div>
+          </div>
+          <div class="wizard-step" data-step="3">
+            <div class="wizard-step__node">
+              <div class="wizard-step__circle">3</div>
+              <span class="wizard-step__label">Design Notes</span>
+            </div>
+            <div class="wizard-step__connector"></div>
+          </div>
+          <div class="wizard-step" data-step="4">
+            <div class="wizard-step__node">
+              <div class="wizard-step__circle">4</div>
+              <span class="wizard-step__label">Review</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="wizard-card">
+          <!-- Step 1: Garment & Fabric -->
+          <div class="wizard-panel is-active" data-panel="1">
+            <h2 class="wizard-panel__title">Garment &amp; Fabric</h2>
+
+            <div class="field-group">
+              <label class="field-label" id="garmentTypeLabel">Garment Type</label>
+              <div class="custom-select" id="garmentType" data-value="suit">
+                <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="garmentTypeLabel">
+                  <span class="custom-select__value">Full Suit</span>
+                  <span class="custom-select__caret">▾</span>
+                </button>
+                <ul class="custom-select__list" role="listbox" tabindex="-1">
+                  <li class="custom-select__option is-selected" role="option" data-value="suit" aria-selected="true">Full Suit</li>
+                  <li class="custom-select__option" role="option" data-value="blazer" aria-selected="false">Blazer</li>
+                  <li class="custom-select__option" role="option" data-value="shirt" aria-selected="false">Dress Shirt</li>
+                  <li class="custom-select__option" role="option" data-value="dress" aria-selected="false">Evening Dress</li>
+                  <li class="custom-select__option" role="option" data-value="trousers" aria-selected="false">Trousers</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <div class="fabric-head">
+                <label class="field-label" style="margin:0">Select Fabric</label>
+                <button type="button" class="fabric-add-link" id="addFabricBtn">+ Add Custom Fabric</button>
+              </div>
+              <div class="fabric-grid" id="fabricGrid">
+                <button type="button" class="fabric-card is-selected" data-fabric="merino-wool" data-tier="Premium" data-name="Merino Wool">
+                  <div class="fabric-card__swatch" style="background:#4A5568"></div>
+                  <div class="fabric-card__name">Merino Wool</div>
+                  <div class="fabric-card__desc">Soft, breathable, year-round</div>
+                  <span class="fabric-tier fabric-tier--premium">Premium</span>
+                </button>
+                <button type="button" class="fabric-card" data-fabric="cashmere" data-tier="Luxury" data-name="Cashmere Blend">
+                  <div class="fabric-card__swatch" style="background:#8B6F47"></div>
+                  <div class="fabric-card__name">Cashmere Blend</div>
+                  <div class="fabric-card__desc">Ultra-fine, warm, prestigious</div>
+                  <span class="fabric-tier fabric-tier--luxury">Luxury</span>
+                </button>
+                <button type="button" class="fabric-card" data-fabric="linen" data-tier="Base" data-name="Italian Linen">
+                  <div class="fabric-card__swatch" style="background:#D4C4A8"></div>
+                  <div class="fabric-card__name">Italian Linen</div>
+                  <div class="fabric-card__desc">Light, crisp, summer-perfect</div>
+                  <span class="fabric-tier fabric-tier--base">Base</span>
+                </button>
+                <button type="button" class="fabric-card" data-fabric="cotton" data-tier="Base" data-name="Cotton Poplin">
+                  <div class="fabric-card__swatch" style="background:#E8E8E8"></div>
+                  <div class="fabric-card__name">Cotton Poplin</div>
+                  <div class="fabric-card__desc">Classic, easy-care, versatile</div>
+                  <span class="fabric-tier fabric-tier--base">Base</span>
+                </button>
+                <button type="button" class="fabric-card" data-fabric="silk" data-tier="Luxury" data-name="Silk Crepe">
+                  <div class="fabric-card__swatch" style="background:#C4A8C8"></div>
+                  <div class="fabric-card__name">Silk Crepe</div>
+                  <div class="fabric-card__desc">Lustrous, fluid, evening wear</div>
+                  <span class="fabric-tier fabric-tier--luxury">Luxury</span>
+                </button>
+                <button type="button" class="fabric-card" data-fabric="wool-blend" data-tier="Base" data-name="Wool Blend">
+                  <div class="fabric-card__swatch" style="background:#6B7280"></div>
+                  <div class="fabric-card__name">Wool Blend</div>
+                  <div class="fabric-card__desc">Durable, structured, smart</div>
+                  <span class="fabric-tier fabric-tier--base">Base</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" id="tierLabel">Tier</label>
+              <div class="custom-select" id="tier" data-value="base">
+                <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="tierLabel">
+                  <span class="custom-select__value">Base — 4-week turnaround</span>
+                  <span class="custom-select__caret">▾</span>
+                </button>
+                <ul class="custom-select__list" role="listbox" tabindex="-1">
+                  <li class="custom-select__option is-selected" role="option" data-value="base" aria-selected="true">Base — 4-week turnaround</li>
+                  <li class="custom-select__option" role="option" data-value="premium" aria-selected="false">Premium — 3-week, priority queue</li>
+                  <li class="custom-select__option" role="option" data-value="luxury" aria-selected="false">Luxury — 2-week, dedicated tailor</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Schedule & Profile -->
+          <div class="wizard-panel" data-panel="2">
+            <h2 class="wizard-panel__title">Schedule &amp; Measurement Profile</h2>
+
+            <div class="payment-field-row">
+              <div class="field-group">
+                <label class="field-label" for="serviceDate">Preferred Service Date</label>
+                <input type="date" id="serviceDate" class="field-input">
+              </div>
+              <div class="field-group">
+                <label class="field-label" id="deliveryTimeLabel">Preferred Delivery Time</label>
+                <div class="custom-select" id="deliveryTime" data-value="">
+                  <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="deliveryTimeLabel">
+                    <span class="custom-select__value">Any time</span>
+                    <span class="custom-select__caret">▾</span>
+                  </button>
+                  <ul class="custom-select__list" role="listbox" tabindex="-1">
+                    <li class="custom-select__option is-selected" role="option" data-value="" aria-selected="true">Any time</li>
+                    <li class="custom-select__option" role="option" data-value="morning" aria-selected="false">Morning (9am – 12pm)</li>
+                    <li class="custom-select__option" role="option" data-value="afternoon" aria-selected="false">Afternoon (12pm – 5pm)</li>
+                    <li class="custom-select__option" role="option" data-value="evening" aria-selected="false">Evening (5pm – 8pm)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="field-label" style="margin-bottom:8px">Measurement Profile</label>
+              <div class="profile-options" id="profileOptions">
+                <label class="profile-option is-selected" data-profile="self" data-label="My measurements">
+                  <input type="radio" name="measureProfile" value="self" checked>
+                  <div>
+                    <div class="profile-option__title">My measurements</div>
+                    <div class="profile-option__sub">Saved Jul 15, 2026</div>
+                  </div>
+                </label>
+                <label class="profile-option" data-profile="dad" data-label="Dad's measurements">
+                  <input type="radio" name="measureProfile" value="dad">
+                  <div>
+                    <div class="profile-option__title">Dad's measurements</div>
+                    <div class="profile-option__sub">Saved Jun 3, 2026</div>
+                  </div>
+                </label>
+                <label class="profile-option" data-profile="new" data-label="Enter new measurements">
+                  <input type="radio" name="measureProfile" value="new">
+                  <div>
+                    <div class="profile-option__title">Enter new measurements</div>
+                    <div class="profile-option__sub">For a new person</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="banner banner--success" id="profileBanner">
+              ✓ Measurements from "My measurements" will be used
+            </div>
+          </div>
+
+          <!-- Step 3: Design Notes -->
+          <div class="wizard-panel" data-panel="3">
+            <h2 class="wizard-panel__title">Design Notes &amp; Reference</h2>
+
+            <div class="field-group">
+              <label class="field-label" for="designNotes">Design Notes</label>
+              <textarea id="designNotes" class="field-textarea" rows="4" placeholder="Describe any specific styling preferences — lapel style, button count, lining colour, pocket type..."></textarea>
+            </div>
+
+            <div>
+              <label class="field-label" style="margin-bottom:8px">Reference Image</label>
+              <label class="dropzone" id="dropzone" for="referenceImage">
+                <div class="dropzone__icon">📁</div>
+                <div class="dropzone__title">Drop image here or click to browse</div>
+                <div class="dropzone__hint">JPG, PNG up to 10 MB</div>
+              </label>
+              <input type="file" id="referenceImage" accept="image/*" style="display:none">
+            </div>
+          </div>
+
+          <!-- Step 4: Review -->
+          <div class="wizard-panel" data-panel="4">
+            <h2 class="wizard-panel__title">Order Summary</h2>
+            <div class="review-list">
+              <div class="review-row"><span>Garment</span><span id="reviewGarment">Full Suit</span></div>
+              <div class="review-row"><span>Fabric</span><span id="reviewFabric">Merino Wool</span></div>
+              <div class="review-row"><span>Tier</span><span id="reviewTier">Base — 4-week turnaround</span></div>
+              <div class="review-row"><span>Service Date</span><span id="reviewDate">Flexible</span></div>
+              <div class="review-row"><span>Delivery Time</span><span id="reviewTime">Any time</span></div>
+              <div class="review-row"><span>Measurement Profile</span><span id="reviewProfile">My measurements</span></div>
+              <div class="review-row"><span>Tailor</span><span>Auto-assigned</span></div>
+              <div class="review-row"><span>Estimated Delivery</span><span>Aug 11, 2026</span></div>
+              <div class="review-total"><span>Total</span><span>৳820</span></div>
+            </div>
+          </div>
+
+          <div class="wizard-footer">
+            <button type="button" class="wizard-btn wizard-btn--outline" id="backBtn" disabled>Back</button>
+            <button type="button" class="wizard-btn wizard-btn--primary" id="continueBtn">Continue</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Custom Fabric modal -->
+  <div class="modal-overlay" id="fabricModalOverlay">
+    <div class="invoice-modal" style="max-width:384px">
+      <div class="invoice-modal__head">
+        <h3 class="invoice-modal__title">Add Custom Fabric</h3>
+        <button type="button" class="invoice-modal__close" id="fabricModalClose">✕</button>
+      </div>
+      <div class="invoice-modal__body">
+        <div class="field-group" style="margin-bottom:12px">
+          <label class="field-label" for="newFabricName">Fabric Name <span style="color:var(--color-red-49)">*</span></label>
+          <input type="text" id="newFabricName" class="field-input" placeholder="e.g. Organic Hemp, Bamboo Linen...">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="newFabricDesc">Description / Notes</label>
+          <input type="text" id="newFabricDesc" class="field-input" placeholder="e.g. Lightweight, breathable, summer use">
+        </div>
+        <div style="display:flex; gap:8px; margin-top:20px">
+          <button type="button" class="wizard-btn wizard-btn--primary" style="flex:1" id="addFabricConfirm">Add Fabric</button>
+          <button type="button" class="wizard-btn wizard-btn--outline" id="fabricModalCancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo role switcher -->
+  <div class="demo-switcher">
+    <span class="demo-switcher__label">Demo</span>
+    <a href="index.html" class="demo-switcher__item" aria-label="Guest" title="Guest">
+      <span class="demo-switcher__icon">👤</span><span class="demo-switcher__text">Guest</span>
+    </a>
+    <a href="customer-dashboard.html" class="demo-switcher__item demo-switcher__item--active" aria-label="Customer" title="Customer">
+      <span class="demo-switcher__icon">🧵</span><span class="demo-switcher__text">Customer</span>
+    </a>
+    <a href="tailor-dashboard.html" class="demo-switcher__item" aria-label="Tailor" title="Tailor">
+      <span class="demo-switcher__icon">✂️</span><span class="demo-switcher__text">Tailor</span>
+    </a>
+    <a href="delivery-dashboard.html" class="demo-switcher__item" aria-label="Delivery" title="Delivery">
+      <span class="demo-switcher__icon">🚚</span><span class="demo-switcher__text">Delivery</span>
+    </a>
+    <a href="#admin" class="demo-switcher__item" aria-label="Admin" title="Admin">
+      <span class="demo-switcher__icon">⚙️</span><span class="demo-switcher__text">Admin</span>
+    </a>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/dash-sidebar.js"></script>
+  <script src="js/custom-select.js"></script>
+  <script src="js/customer-new-order.js"></script>
+</body>
+</html>

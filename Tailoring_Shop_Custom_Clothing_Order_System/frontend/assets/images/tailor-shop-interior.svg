@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="tailorShopTitle">
+  <title id="tailorShopTitle">Illustration of the Tailor Bhai shop interior</title>
+
+  <!-- Wall -->
+  <rect x="0" y="0" width="640" height="340" fill="#f0ede8"/>
+  <!-- Wainscot line -->
+  <rect x="0" y="250" width="640" height="6" fill="#e5e0d8"/>
+  <rect x="0" y="256" width="640" height="84" fill="#e9e3da"/>
+  <!-- Floor -->
+  <rect x="0" y="340" width="640" height="140" fill="#c9a97e"/>
+  <g stroke="#b9976a" stroke-width="2" opacity="0.6">
+    <line x1="0" y1="368" x2="640" y2="368"/>
+    <line x1="0" y1="398" x2="640" y2="398"/>
+    <line x1="0" y1="430" x2="640" y2="430"/>
+    <line x1="0" y1="462" x2="640" y2="462"/>
+  </g>
+
+  <!-- Window -->
+  <g>
+    <rect x="40" y="40" width="150" height="180" rx="4" fill="#faf8f4" stroke="#d8cfc2" stroke-width="6"/>
+    <line x1="115" y1="40" x2="115" y2="220" stroke="#d8cfc2" stroke-width="5"/>
+    <line x1="40" y1="130" x2="190" y2="130" stroke="#d8cfc2" stroke-width="5"/>
+    <rect x="46" y="46" width="63" height="78" fill="#fdf3e0" opacity="0.6"/>
+    <rect x="121" y="46" width="63" height="78" fill="#fdf3e0" opacity="0.45"/>
+    <rect x="46" y="136" width="63" height="78" fill="#fdf3e0" opacity="0.5"/>
+    <rect x="121" y="136" width="63" height="78" fill="#fdf3e0" opacity="0.35"/>
+  </g>
+
+  <!-- Pendant lamp -->
+  <line x1="330" y1="0" x2="330" y2="86" stroke="#b8afa6" stroke-width="2"/>
+  <path d="M308 86 a22 16 0 0 0 44 0 z" fill="#1b2b4b"/>
+  <ellipse cx="330" cy="104" rx="34" ry="18" fill="#f4c98a" opacity="0.35"/>
+
+  <!-- Garment rack -->
+  <g>
+    <line x1="430" y1="90" x2="430" y2="300" stroke="#7a7068" stroke-width="4"/>
+    <line x1="430" y1="90" x2="590" y2="90" stroke="#7a7068" stroke-width="4"/>
+    <line x1="590" y1="90" x2="590" y2="300" stroke="#7a7068" stroke-width="4"/>
+    <!-- hangers + garments -->
+    <g>
+      <line x1="452" y1="90" x2="452" y2="104" stroke="#a89c8d" stroke-width="2"/>
+      <path d="M452 104 l-16 10 h32 z" fill="none" stroke="#a89c8d" stroke-width="2"/>
+      <rect x="432" y="114" width="40" height="70" rx="6" fill="#1b2b4b"/>
+    </g>
+    <g>
+      <line x1="486" y1="90" x2="486" y2="104" stroke="#a89c8d" stroke-width="2"/>
+      <path d="M486 104 l-16 10 h32 z" fill="none" stroke="#a89c8d" stroke-width="2"/>
+      <rect x="466" y="114" width="40" height="78" rx="6" fill="#c4614a"/>
+    </g>
+    <g>
+      <line x1="520" y1="90" x2="520" y2="104" stroke="#a89c8d" stroke-width="2"/>
+      <path d="M520 104 l-16 10 h32 z" fill="none" stroke="#a89c8d" stroke-width="2"/>
+      <rect x="500" y="114" width="40" height="66" rx="6" fill="#e5e0d8"/>
+    </g>
+    <g>
+      <line x1="554" y1="90" x2="554" y2="104" stroke="#a89c8d" stroke-width="2"/>
+      <path d="M554 104 l-16 10 h32 z" fill="none" stroke="#a89c8d" stroke-width="2"/>
+      <rect x="534" y="114" width="40" height="74" rx="6" fill="#7a7068"/>
+    </g>
+  </g>
+
+  <!-- Dress form / mannequin -->
+  <g>
+    <ellipse cx="230" cy="360" rx="26" ry="8" fill="#00000014"/>
+    <line x1="230" y1="300" x2="230" y2="352" stroke="#b8afa6" stroke-width="5"/>
+    <path d="M230 260 a10 10 0 1 0 0.01 0" fill="#e5e0d8"/>
+    <path d="M198 270 q32 -22 64 0 l-6 70 q-26 16 -52 0 z" fill="#c4614a"/>
+    <line x1="230" y1="270" x2="230" y2="336" stroke="#a84f3b" stroke-width="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- Fabric bolts -->
+  <g>
+    <rect x="70" y="300" width="22" height="70" rx="4" fill="#1b2b4b"/>
+    <ellipse cx="81" cy="300" rx="11" ry="6" fill="#26385c"/>
+    <rect x="96" y="312" width="22" height="58" rx="4" fill="#c4614a"/>
+    <ellipse cx="107" cy="312" rx="11" ry="6" fill="#d1735c"/>
+    <rect x="122" y="322" width="22" height="48" rx="4" fill="#7a7068"/>
+    <ellipse cx="133" cy="322" rx="11" ry="6" fill="#8c8175"/>
+  </g>
+
+  <!-- Work table with sewing machine -->
+  <g>
+    <rect x="330" y="330" width="180" height="10" fill="#5c4632"/>
+    <rect x="336" y="340" width="10" height="60" fill="#4a3826"/>
+    <rect x="494" y="340" width="10" height="60" fill="#4a3826"/>
+    <!-- sewing machine -->
+    <rect x="360" y="296" width="90" height="16" rx="4" fill="#e5e0d8"/>
+    <path d="M360 296 q0 -34 34 -34 h30 q18 0 18 18 v16 z" fill="#1b2b4b"/>
+    <circle cx="424" cy="286" r="5" fill="#c4614a"/>
+    <rect x="378" y="270" width="6" height="26" fill="#1b2b4b"/>
+  </g>
+
+  <!-- Potted plant -->
+  <g>
+    <path d="M556 300 q-18 -34 0 -54 q18 20 0 54 z" fill="#4d7a52"/>
+    <path d="M556 300 q18 -28 4 -50 q-14 18 -4 50 z" fill="#5d8f61"/>
+    <path d="M544 300 h24 l-4 26 h-16 z" fill="#c9a97e"/>
+  </g>
+</svg>

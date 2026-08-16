@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — Tailor Bhai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Fixed Navigation -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">Tailor Bhai</a>
+
+      <nav class="navbar__links" id="navbar-links">
+        <a href="gallery.html" class="navbar__link">Gallery</a>
+        <a href="price-list.html" class="navbar__link">Price List</a>
+        <a href="about.html" class="navbar__link">About</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="signin.html" class="btn btn--ghost btn--sm">Sign In</a>
+        <a href="signup.html" class="btn btn--primary btn--sm">Get Started</a>
+        <button type="button" class="navbar__toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-links">
+          <span class="navbar__toggle-bar"></span>
+          <span class="navbar__toggle-bar"></span>
+          <span class="navbar__toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="auth-section">
+      <div class="auth-wrap">
+        <div class="auth-header">
+          <p class="auth-brand">Tailor Bhai</p>
+          <h1 class="auth-title">Welcome back</h1>
+          <p class="auth-subtitle">Sign in to manage your orders</p>
+        </div>
+
+        <div class="auth-card">
+          <form class="auth-form" action="#" method="post">
+            <div class="form-field">
+              <label class="form-label" for="email">Email Address</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="alex@example.com" required>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="password">Password</label>
+              <input class="form-input" type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
+
+            <a href="#forgot-password" class="form-forgot">Forgot password?</a>
+
+            <div class="auth-submit-wrap">
+              <button type="submit" class="btn btn--primary btn--block">Sign In</button>
+            </div>
+          </form>
+
+          <p class="auth-footer-text">
+            Don't have an account? <a href="signup.html" class="link-accent">Sign up</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Demo role switcher -->
+  <div class="demo-switcher">
+    <span class="demo-switcher__label">Demo</span>
+    <button class="demo-switcher__item demo-switcher__item--active" type="button" aria-label="Guest" title="Guest">
+      <span class="demo-switcher__icon">👤</span><span class="demo-switcher__text">Guest</span>
+    </button>
+    <a href="customer-dashboard.html" class="demo-switcher__item" aria-label="Customer" title="Customer">
+      <span class="demo-switcher__icon">🧵</span><span class="demo-switcher__text">Customer</span>
+    </a>
+    <a href="tailor-dashboard.html" class="demo-switcher__item" aria-label="Tailor" title="Tailor">
+      <span class="demo-switcher__icon">✂️</span><span class="demo-switcher__text">Tailor</span>
+    </a>
+    <a href="delivery-dashboard.html" class="demo-switcher__item" aria-label="Delivery" title="Delivery">
+      <span class="demo-switcher__icon">🚚</span><span class="demo-switcher__text">Delivery</span>
+    </a>
+    <a href="#admin" class="demo-switcher__item" aria-label="Admin" title="Admin">
+      <span class="demo-switcher__icon">⚙️</span><span class="demo-switcher__text">Admin</span>
+    </a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
