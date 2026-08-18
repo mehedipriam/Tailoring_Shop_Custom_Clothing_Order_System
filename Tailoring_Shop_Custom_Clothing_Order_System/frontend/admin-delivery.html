@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Delivery Persons — Tailor Bhai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dash">
+
+  <div class="dash-shell">
+    <div class="dash-mobile-topbar">
+      <button type="button" class="dash-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <span class="dash-mobile-topbar__brand">Tailor Bhai</span>
+    </div>
+    <div class="dash-backdrop"></div>
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar__header">
+        <p class="dash-sidebar__brand">Tailor Bhai</p>
+        <p class="dash-sidebar__sub">Admin</p>
+      </div>
+
+      <nav class="dash-nav">
+        <a href="admin-dashboard.html" class="dash-nav__item">
+          <span class="dash-nav__icon">🏠</span>
+          <span class="dash-nav__label">Dashboard</span>
+        </a>
+        <a href="admin-tailors.html" class="dash-nav__item">
+          <span class="dash-nav__icon">✂️</span>
+          <span class="dash-nav__label">Tailors</span>
+        </a>
+        <a href="admin-delivery.html" class="dash-nav__item dash-nav__item--active">
+          <span class="dash-nav__icon">🚚</span>
+          <span class="dash-nav__label">Delivery</span>
+        </a>
+        <a href="admin-pricing.html" class="dash-nav__item">
+          <span class="dash-nav__icon">💲</span>
+          <span class="dash-nav__label">Pricing</span>
+        </a>
+        <a href="admin-reports.html" class="dash-nav__item">
+          <span class="dash-nav__icon">📊</span>
+          <span class="dash-nav__label">Reports</span>
+        </a>
+      </nav>
+
+      <div class="dash-sidebar__footer">
+        <a href="index.html" class="dash-signout">
+          <span class="dash-signout__icon">→</span>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="dash-main">
+      <div class="dash-content">
+        <div class="dash-header">
+          <div>
+            <h1 class="dash-header__title">Manage Delivery Persons</h1>
+            <p class="dash-header__subtitle" id="deliverySubtitle">3 registered · 2 active</p>
+          </div>
+          <button type="button" class="dash-btn-primary" id="toggleAddDelivery" aria-expanded="false" aria-controls="addDeliveryCard">+ Add Delivery Person</button>
+        </div>
+
+        <form class="admin-form-card" id="addDeliveryCard">
+          <p class="admin-form-card__title">Add New Delivery Person</p>
+
+          <div class="admin-form-grid">
+            <div class="field-group">
+              <label class="field-label" for="deliveryName">Full Name</label>
+              <input type="text" id="deliveryName" class="field-input" placeholder="e.g. Lena Fischer">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="deliveryPhone">Phone</label>
+              <input type="tel" id="deliveryPhone" class="field-input" placeholder="+1 (555) …">
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="deliveryZone">Zone</label>
+              <div class="custom-select" id="deliveryZone" data-value="north-quarter">
+                <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="deliveryZone">
+                  <span class="custom-select__value">North Quarter</span>
+                  <span class="custom-select__caret">▾</span>
+                </button>
+                <ul class="custom-select__list" role="listbox" tabindex="-1">
+                  <li class="custom-select__option is-selected" role="option" data-value="north-quarter" aria-selected="true">North Quarter</li>
+                  <li class="custom-select__option" role="option" data-value="south-quarter" aria-selected="false">South Quarter</li>
+                  <li class="custom-select__option" role="option" data-value="east-quarter" aria-selected="false">East Quarter</li>
+                  <li class="custom-select__option" role="option" data-value="west-quarter" aria-selected="false">West Quarter</li>
+                  <li class="custom-select__option" role="option" data-value="east-west" aria-selected="false">East &amp; West</li>
+                </ul>
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="deliveryEmail">Email</label>
+              <input type="email" id="deliveryEmail" class="field-input" placeholder="lena@maisonatelier.com">
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">National ID (NID)</label>
+              <label class="file-field" for="deliveryNid">
+                <span class="file-field__icon">📎</span>
+                <span class="file-field__name">Click to upload</span>
+              </label>
+              <input type="file" id="deliveryNid" style="display:none">
+            </div>
+            <div class="field-group">
+              <label class="field-label">Driving Licence</label>
+              <label class="file-field" for="deliveryLicence">
+                <span class="file-field__icon">📎</span>
+                <span class="file-field__name">Click to upload</span>
+              </label>
+              <input type="file" id="deliveryLicence" style="display:none">
+            </div>
+
+            <div class="field-group admin-form-grid--full">
+              <label class="field-label">Additional Document</label>
+              <label class="file-field" for="deliveryDoc">
+                <span class="file-field__icon">📎</span>
+                <span class="file-field__name">Click to upload</span>
+              </label>
+              <input type="file" id="deliveryDoc" style="display:none">
+            </div>
+          </div>
+
+          <div class="admin-form-actions">
+            <button type="submit" class="dash-btn-primary">Save Person</button>
+            <button type="button" class="admin-form-cancel" id="cancelAddDelivery">Cancel</button>
+          </div>
+        </form>
+
+        <div class="admin-people-list" id="deliveryList">
+          <div class="admin-person-card">
+            <div class="admin-person-card__id">
+              <span class="admin-avatar">C</span>
+              <div>
+                <p class="admin-person-card__name">Carlos Mendez</p>
+                <p class="admin-person-card__meta">Zone: North Quarter · +1 (555) 302-1891</p>
+              </div>
+            </div>
+            <div class="admin-person-card__actions">
+              <div class="admin-person-card__stat">
+                <p class="admin-person-card__stat-value">8</p>
+                <p class="admin-person-card__stat-label">deliveries</p>
+              </div>
+              <span class="badge badge--success">Active</span>
+              <button type="button" class="admin-table-link">Edit</button>
+            </div>
+          </div>
+
+          <div class="admin-person-card">
+            <div class="admin-person-card__id">
+              <span class="admin-avatar">A</span>
+              <div>
+                <p class="admin-person-card__name">Amina Diallo</p>
+                <p class="admin-person-card__meta">Zone: South Quarter · +1 (555) 481-2204</p>
+              </div>
+            </div>
+            <div class="admin-person-card__actions">
+              <div class="admin-person-card__stat">
+                <p class="admin-person-card__stat-value">6</p>
+                <p class="admin-person-card__stat-label">deliveries</p>
+              </div>
+              <span class="badge badge--success">Active</span>
+              <button type="button" class="admin-table-link">Edit</button>
+            </div>
+          </div>
+
+          <div class="admin-person-card">
+            <div class="admin-person-card__id">
+              <span class="admin-avatar">K</span>
+              <div>
+                <p class="admin-person-card__name">Kenji Watanabe</p>
+                <p class="admin-person-card__meta">Zone: East &amp; West · +1 (555) 192-3399</p>
+              </div>
+            </div>
+            <div class="admin-person-card__actions">
+              <div class="admin-person-card__stat">
+                <p class="admin-person-card__stat-value">0</p>
+                <p class="admin-person-card__stat-label">deliveries</p>
+              </div>
+              <span class="badge badge--muted">Inactive</span>
+              <button type="button" class="admin-table-link">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Demo role switcher -->
+  <div class="demo-switcher">
+    <span class="demo-switcher__label">Demo</span>
+    <a href="index.html" class="demo-switcher__item" aria-label="Guest" title="Guest">
+      <span class="demo-switcher__icon">👤</span><span class="demo-switcher__text">Guest</span>
+    </a>
+    <a href="customer-dashboard.html" class="demo-switcher__item" aria-label="Customer" title="Customer">
+      <span class="demo-switcher__icon">🧵</span><span class="demo-switcher__text">Customer</span>
+    </a>
+    <a href="tailor-dashboard.html" class="demo-switcher__item" aria-label="Tailor" title="Tailor">
+      <span class="demo-switcher__icon">✂️</span><span class="demo-switcher__text">Tailor</span>
+    </a>
+    <a href="delivery-dashboard.html" class="demo-switcher__item" aria-label="Delivery" title="Delivery">
+      <span class="demo-switcher__icon">🚚</span><span class="demo-switcher__text">Delivery</span>
+    </a>
+    <a href="admin-dashboard.html" class="demo-switcher__item demo-switcher__item--active" aria-label="Admin" title="Admin">
+      <span class="demo-switcher__icon">⚙️</span><span class="demo-switcher__text">Admin</span>
+    </a>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/dash-sidebar.js"></script>
+  <script src="js/custom-select.js"></script>
+  <script src="js/file-field.js"></script>
+  <script src="js/admin-delivery.js"></script>
+</body>
+</html>

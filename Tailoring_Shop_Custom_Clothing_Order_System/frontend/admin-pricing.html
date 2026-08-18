@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Pricing — Tailor Bhai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dash">
+
+  <div class="dash-shell">
+    <div class="dash-mobile-topbar">
+      <button type="button" class="dash-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <span class="dash-mobile-topbar__brand">Tailor Bhai</span>
+    </div>
+    <div class="dash-backdrop"></div>
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar__header">
+        <p class="dash-sidebar__brand">Tailor Bhai</p>
+        <p class="dash-sidebar__sub">Admin</p>
+      </div>
+
+      <nav class="dash-nav">
+        <a href="admin-dashboard.html" class="dash-nav__item">
+          <span class="dash-nav__icon">🏠</span>
+          <span class="dash-nav__label">Dashboard</span>
+        </a>
+        <a href="admin-tailors.html" class="dash-nav__item">
+          <span class="dash-nav__icon">✂️</span>
+          <span class="dash-nav__label">Tailors</span>
+        </a>
+        <a href="admin-delivery.html" class="dash-nav__item">
+          <span class="dash-nav__icon">🚚</span>
+          <span class="dash-nav__label">Delivery</span>
+        </a>
+        <a href="admin-pricing.html" class="dash-nav__item dash-nav__item--active">
+          <span class="dash-nav__icon">💲</span>
+          <span class="dash-nav__label">Pricing</span>
+        </a>
+        <a href="admin-reports.html" class="dash-nav__item">
+          <span class="dash-nav__icon">📊</span>
+          <span class="dash-nav__label">Reports</span>
+        </a>
+      </nav>
+
+      <div class="dash-sidebar__footer">
+        <a href="index.html" class="dash-signout">
+          <span class="dash-signout__icon">→</span>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="dash-main">
+      <div class="dash-content" style="max-width:1152px">
+        <div class="dash-header">
+          <div>
+            <h1 class="dash-header__title">Manage Pricing</h1>
+            <p class="dash-header__subtitle">Edit prices, making charges, and fabric costs per category.</p>
+          </div>
+          <div class="admin-page-actions">
+            <button type="button" class="detail-btn detail-btn--secondary" id="toggleNewCategory" aria-expanded="false" aria-controls="newCategoryCard">+ New Category</button>
+            <button type="button" class="dash-btn-primary">Save All Changes</button>
+          </div>
+        </div>
+
+        <form class="admin-form-card" id="newCategoryCard">
+          <p class="admin-form-card__title">New Clothing Category</p>
+          <div class="admin-form-row">
+            <div class="field-group">
+              <label class="field-label" for="newGarmentType">Garment Type</label>
+              <input type="text" id="newGarmentType" class="field-input" placeholder="e.g. Overcoat">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="newFabric">Fabric</label>
+              <input type="text" id="newFabric" class="field-input" placeholder="e.g. Cashmere">
+            </div>
+            <div class="admin-form-actions">
+              <button type="submit" class="dash-btn-primary">Add Row</button>
+              <button type="button" class="admin-form-cancel" id="cancelNewCategory">Cancel</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="price-table-wrap">
+          <div class="price-table-scroll">
+            <table class="price-table">
+              <thead>
+                <tr>
+                  <th class="price-table__th price-table__th--left">Garment</th>
+                  <th class="price-table__th price-table__th--left">Fabric</th>
+                  <th class="price-table__th">Base (৳)</th>
+                  <th class="price-table__th">Premium (৳)</th>
+                  <th class="price-table__th">Luxury (৳)</th>
+                  <th class="price-table__th">Making Charge (৳)</th>
+                  <th class="price-table__th">Per m Fabric (৳)</th>
+                  <th class="price-table__th price-table__th--action"></th>
+                </tr>
+              </thead>
+              <tbody id="pricingTableBody">
+                <tr>
+                  <td class="price-table__garment">Dress Shirt</td>
+                  <td class="price-table__fabric">Cotton Poplin</td>
+                  <td data-label="Base (৳)"><input type="text" class="price-input" value="1,800"></td>
+                  <td data-label="Premium (৳)"><input type="text" class="price-input" value="2,500"></td>
+                  <td data-label="Luxury (৳)"><input type="text" class="price-input" value="3,500"></td>
+                  <td data-label="Making Charge (৳)"><input type="text" class="price-input" value="400"></td>
+                  <td data-label="Per m Fabric (৳)"><input type="text" class="price-input" value="650"></td>
+                  <td class="price-table__action"><button type="button" class="price-row-remove" aria-label="Remove row">✕</button></td>
+                </tr>
+                <tr>
+                  <td class="price-table__garment">Dress Shirt</td>
+                  <td class="price-table__fabric">Linen</td>
+                  <td data-label="Base (৳)"><input type="text" class="price-input" value="2,300"></td>
+                  <td data-label="Premium (৳)"><input type="text" class="price-input" value="3,200"></td>
+                  <td data-label="Luxury (৳)"><input type="text" class="price-input" value="4,500"></td>
+                  <td data-label="Making Charge (৳)"><input type="text" class="price-input" value="500"></td>
+                  <td data-label="Per m Fabric (৳)"><input type="text" class="price-input" value="900"></td>
+                  <td class="price-table__action"><button type="button" class="price-row-remove" aria-label="Remove row">✕</button></td>
+                </tr>
+                <tr>
+                  <td class="price-table__garment">Blazer</td>
+                  <td class="price-table__fabric">Wool Blend</td>
+                  <td data-label="Base (৳)"><input type="text" class="price-input" value="6,500"></td>
+                  <td data-label="Premium (৳)"><input type="text" class="price-input" value="9,500"></td>
+                  <td data-label="Luxury (৳)"><input type="text" class="price-input" value="13,500"></td>
+                  <td data-label="Making Charge (৳)"><input type="text" class="price-input" value="1,800"></td>
+                  <td data-label="Per m Fabric (৳)"><input type="text" class="price-input" value="2,000"></td>
+                  <td class="price-table__action"><button type="button" class="price-row-remove" aria-label="Remove row">✕</button></td>
+                </tr>
+                <tr>
+                  <td class="price-table__garment">Full Suit</td>
+                  <td class="price-table__fabric">Merino Wool</td>
+                  <td data-label="Base (৳)"><input type="text" class="price-input" value="12,000"></td>
+                  <td data-label="Premium (৳)"><input type="text" class="price-input" value="17,500"></td>
+                  <td data-label="Luxury (৳)"><input type="text" class="price-input" value="26,000"></td>
+                  <td data-label="Making Charge (৳)"><input type="text" class="price-input" value="3,000"></td>
+                  <td data-label="Per m Fabric (৳)"><input type="text" class="price-input" value="3,500"></td>
+                  <td class="price-table__action"><button type="button" class="price-row-remove" aria-label="Remove row">✕</button></td>
+                </tr>
+                <tr>
+                  <td class="price-table__garment">Evening Dress</td>
+                  <td class="price-table__fabric">Silk Crepe</td>
+                  <td data-label="Base (৳)"><input type="text" class="price-input" value="5,500"></td>
+                  <td data-label="Premium (৳)"><input type="text" class="price-input" value="8,500"></td>
+                  <td data-label="Luxury (৳)"><input type="text" class="price-input" value="12,500"></td>
+                  <td data-label="Making Charge (৳)"><input type="text" class="price-input" value="1,500"></td>
+                  <td data-label="Per m Fabric (৳)"><input type="text" class="price-input" value="2,200"></td>
+                  <td class="price-table__action"><button type="button" class="price-row-remove" aria-label="Remove row">✕</button></td>
+                </tr>
+                <tr>
+                  <td class="price-table__garment">Trousers</td>
+                  <td class="price-table__fabric">Cotton Chino</td>
+                  <td data-label="Base (৳)"><input type="text" class="price-input" value="2,000"></td>
+                  <td data-label="Premium (৳)"><input type="text" class="price-input" value="2,900"></td>
+                  <td data-label="Luxury (৳)"><input type="text" class="price-input" value="4,200"></td>
+                  <td data-label="Making Charge (৳)"><input type="text" class="price-input" value="600"></td>
+                  <td data-label="Per m Fabric (৳)"><input type="text" class="price-input" value="800"></td>
+                  <td class="price-table__action"><button type="button" class="price-row-remove" aria-label="Remove row">✕</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Demo role switcher -->
+  <div class="demo-switcher">
+    <span class="demo-switcher__label">Demo</span>
+    <a href="index.html" class="demo-switcher__item" aria-label="Guest" title="Guest">
+      <span class="demo-switcher__icon">👤</span><span class="demo-switcher__text">Guest</span>
+    </a>
+    <a href="customer-dashboard.html" class="demo-switcher__item" aria-label="Customer" title="Customer">
+      <span class="demo-switcher__icon">🧵</span><span class="demo-switcher__text">Customer</span>
+    </a>
+    <a href="tailor-dashboard.html" class="demo-switcher__item" aria-label="Tailor" title="Tailor">
+      <span class="demo-switcher__icon">✂️</span><span class="demo-switcher__text">Tailor</span>
+    </a>
+    <a href="delivery-dashboard.html" class="demo-switcher__item" aria-label="Delivery" title="Delivery">
+      <span class="demo-switcher__icon">🚚</span><span class="demo-switcher__text">Delivery</span>
+    </a>
+    <a href="admin-dashboard.html" class="demo-switcher__item demo-switcher__item--active" aria-label="Admin" title="Admin">
+      <span class="demo-switcher__icon">⚙️</span><span class="demo-switcher__text">Admin</span>
+    </a>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/dash-sidebar.js"></script>
+  <script src="js/admin-pricing.js"></script>
+</body>
+</html>

@@ -2,6 +2,7 @@
   var toggle = document.querySelector('.dash-hamburger');
   var sidebar = document.querySelector('.dash-sidebar');
   var backdrop = document.querySelector('.dash-backdrop');
+  var demoSwitcher = document.querySelector('.demo-switcher');
 
   if (!toggle || !sidebar || !backdrop) return;
 
@@ -9,12 +10,14 @@
     sidebar.classList.add('is-open');
     backdrop.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
+    if (demoSwitcher) demoSwitcher.classList.add('is-hidden');
   }
 
   function closeMenu() {
     sidebar.classList.remove('is-open');
     backdrop.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
+    if (demoSwitcher) demoSwitcher.classList.remove('is-hidden');
   }
 
   toggle.addEventListener('click', function () {

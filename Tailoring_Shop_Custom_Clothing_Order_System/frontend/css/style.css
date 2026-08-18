@@ -1098,6 +1098,7 @@ h1, h2, h3, h4 {
 
 .dash-main {
   flex: 1;
+  min-width: 0;
   margin-left: var(--sidebar-width);
   background: var(--color-grey-97);
   min-height: 100vh;
@@ -1162,6 +1163,10 @@ h1, h2, h3, h4 {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   padding-top: 16px;
+}
+
+.dash-stats--4 {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .dash-stat-card {
@@ -1394,8 +1399,9 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   color: var(--color-grey-44);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 8px;
 }
 
 .field-label__unit {
@@ -3633,6 +3639,13 @@ h1, h2, h3, h4 {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   max-width: calc(100vw - 32px);
   overflow-x: auto;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.demo-switcher.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .demo-switcher__label {
@@ -3679,6 +3692,575 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
+   Admin flow — charts, shortcut grid, tables, delivery-person cards
+   ========================================================================== */
+.admin-charts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding-top: 8px;
+}
+
+.admin-chart-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-orange-87);
+  border-radius: 8px;
+  padding: 20.8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-chart-card__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-azure-20);
+}
+
+.admin-chart {
+  display: block;
+  width: 100%;
+  height: 180px;
+}
+
+.admin-chart text {
+  font-family: var(--font-body);
+  font-size: 11px;
+  fill: var(--color-orange-69);
+}
+
+.admin-chart-line {
+  fill: none;
+  stroke: var(--color-azure-20);
+  stroke-width: 2;
+}
+
+.admin-chart-area {
+  fill: url(#adminIncomeGradient);
+  stroke: none;
+}
+
+.admin-chart-bar {
+  fill: var(--color-red-53);
+}
+
+.admin-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.admin-shortcut-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-white);
+  border: 1px solid var(--color-orange-87);
+  border-radius: 8px;
+  padding: 20.8px;
+  transition: box-shadow 0.15s ease;
+}
+
+.admin-shortcut-card:hover {
+  box-shadow: 0 1px 6px rgba(27, 43, 75, 0.1);
+}
+
+.admin-shortcut-card__icon {
+  font-size: 24px;
+  line-height: 32px;
+  flex-shrink: 0;
+}
+
+.admin-shortcut-card__title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-azure-20);
+}
+
+.admin-shortcut-card__text {
+  font-size: 12px;
+  color: var(--color-grey-44);
+  margin-top: 2px;
+}
+
+.admin-page-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.admin-table-wrap {
+  background: var(--color-white);
+  border: 1px solid var(--color-orange-87);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-table-scroll {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Only tables with enough columns to genuinely need horizontal scroll on
+   mobile get a min-width — narrower tables (e.g. Monthly Sales Summary)
+   should just fit the viewport instead of forcing a needless scrollbar. */
+#tailorsTable {
+  min-width: 560px;
+}
+
+#purchasesTable {
+  min-width: 720px;
+}
+
+#garmentsTable {
+  min-width: 480px;
+}
+
+.admin-table thead tr {
+  background: var(--color-grey-97);
+  border-bottom: 0.8px solid var(--color-orange-87);
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 12px 20px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--color-grey-44);
+  white-space: nowrap;
+}
+
+.admin-table th.th--right,
+.admin-table td.admin-table__action {
+  text-align: right;
+}
+
+.admin-table tbody tr {
+  border-top: 0.8px solid var(--color-orange-87);
+}
+
+.admin-table tbody tr:nth-child(even) {
+  background: var(--color-grey-97);
+}
+
+.admin-table td {
+  padding: 12.4px 20px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.admin-table__name {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-azure-20);
+}
+
+.admin-table__email {
+  font-size: 12px;
+  color: var(--color-orange-69);
+  margin-top: 2px;
+}
+
+.admin-table__mono {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-grey-10);
+}
+
+.admin-table-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--color-azure-20);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.admin-table-link:hover {
+  background: rgba(27, 43, 75, 0.06);
+}
+
+.admin-people-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-person-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: var(--color-white);
+  border: 1px solid var(--color-orange-87);
+  border-radius: 8px;
+  padding: 20.8px;
+}
+
+.admin-person-card__id {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: rgba(27, 43, 75, 0.1);
+  color: var(--color-azure-20);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.admin-person-card__name {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-azure-20);
+}
+
+.admin-person-card__meta {
+  font-size: 12px;
+  color: var(--color-grey-44);
+  margin-top: 2px;
+}
+
+.admin-person-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-person-card__stat {
+  text-align: right;
+}
+
+.admin-person-card__stat-value {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-azure-20);
+}
+
+.admin-person-card__stat-label {
+  font-size: 12px;
+  color: var(--color-orange-69);
+}
+
+.admin-tabs {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  background: var(--color-grey-93);
+  border-radius: 8px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.admin-tab {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-grey-44);
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.admin-tab:hover:not(.is-active) {
+  color: var(--color-azure-20);
+}
+
+.admin-tab.is-active {
+  background: var(--color-azure-20);
+  color: var(--color-white);
+}
+
+.admin-report-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.period-toggle {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  background: var(--color-grey-93);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.period-toggle__btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--color-grey-44);
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.period-toggle__btn:hover:not(.is-active) {
+  color: var(--color-azure-20);
+}
+
+.period-toggle__btn.is-active {
+  background: var(--color-azure-20);
+  color: var(--color-white);
+}
+
+.dash-stats--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.month-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.month-pill {
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-orange-87);
+  background: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--color-grey-44);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.month-pill:hover:not(.is-active) {
+  border-color: var(--color-azure-20);
+  color: var(--color-azure-20);
+}
+
+.month-pill.is-active {
+  background: var(--color-red-53);
+  border-color: var(--color-red-53);
+  color: var(--color-white);
+}
+
+.stat-highlight {
+  background: var(--color-white);
+  border: 1px solid var(--color-orange-87);
+  border-radius: 8px;
+  padding: 20.8px;
+}
+
+.stat-highlight__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-grey-44);
+  margin-bottom: 8px;
+}
+
+.stat-highlight__value {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-azure-20);
+}
+
+.admin-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16.8px 20.8px;
+  border-bottom: 0.8px solid var(--color-orange-87);
+}
+
+.admin-card-head__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-azure-20);
+}
+
+.admin-table tfoot td {
+  padding: 12.4px 20px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-azure-20);
+  background: var(--color-grey-97);
+  border-top: 1.5px solid var(--color-azure-20);
+}
+
+.admin-table tfoot .admin-table__total-value {
+  font-family: var(--font-mono);
+  color: var(--color-red-53);
+}
+
+.admin-table tbody tr.is-current {
+  border-left: 3px solid var(--color-red-53);
+}
+
+.admin-chart-axis-y text {
+  text-anchor: end;
+}
+
+.admin-tab-panel {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.admin-tab-panel.is-active {
+  display: flex;
+}
+
+.admin-form-card {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--color-white);
+  border: 1px solid var(--color-orange-87);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.admin-form-card.is-open {
+  display: flex;
+}
+
+.admin-form-card__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-azure-20);
+}
+
+.admin-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.admin-form-grid--full {
+  grid-column: 1 / -1;
+}
+
+.file-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-orange-69);
+  background: var(--color-white);
+  border: 1px solid var(--color-orange-87);
+  border-radius: 6px;
+  padding: 8.8px 12px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.file-field:hover {
+  border-color: rgba(196, 97, 74, 0.4);
+}
+
+.file-field.has-file {
+  color: var(--color-azure-20);
+  border-color: var(--color-green-46);
+}
+
+.file-field__icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.file-field__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-form-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.admin-form-row .field-group {
+  flex: 1;
+  min-width: 180px;
+}
+
+.admin-form-row .admin-form-actions {
+  flex-shrink: 0;
+  padding-bottom: 1px;
+}
+
+.admin-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-form-cancel {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-grey-44);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8.4px 4px;
+}
+
+.admin-form-cancel:hover {
+  color: var(--color-azure-20);
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -3710,9 +4292,236 @@ h1, h2, h3, h4 {
   .dash-stats {
     grid-template-columns: 1fr;
   }
+
+  .admin-charts,
+  .admin-shortcuts {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
+  /* Price table: too many columns to ever fit a phone width, so instead of
+     a horizontal-scrolling table, render each garment as its own card with
+     labeled fields — no sideways scrolling needed. */
+  .price-table-wrap {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+  }
+
+  .price-table-scroll {
+    overflow-x: visible;
+  }
+
+  .price-table {
+    min-width: 0;
+    display: block;
+  }
+
+  .price-table thead {
+    display: none;
+  }
+
+  .price-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .price-table tbody tr {
+    display: block;
+    border: 1px solid var(--color-orange-87);
+    border-top: 1px solid var(--color-orange-87);
+    border-radius: 8px;
+    padding: 16px;
+    position: relative;
+    background: var(--color-white);
+  }
+
+  .price-table td.price-table__garment,
+  .price-table td.price-table__fabric {
+    display: block;
+    padding: 0;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .price-table__garment {
+    padding-right: 32px;
+    font-size: 16px;
+  }
+
+  .price-table__fabric {
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--color-grey-93);
+  }
+
+  .price-table td:not(.price-table__garment):not(.price-table__fabric):not(.price-table__action) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    text-align: right;
+    border-bottom: 1px solid var(--color-grey-93);
+  }
+
+  .price-table td[data-label]::before {
+    content: attr(data-label);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--color-grey-44);
+  }
+
+  .price-table tbody tr td:nth-last-child(2) {
+    border-bottom: none;
+  }
+
+  .price-table .price-input {
+    width: 110px;
+  }
+
+  .price-table__action {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: auto;
+    padding: 0;
+  }
+
+  /* Reports: Top Garments by Revenue + Purchase List also become cards
+     instead of a horizontally-scrolling table on mobile. */
+  #garmentsTable,
+  #purchasesTable {
+    min-width: 0;
+    display: block;
+  }
+
+  #garmentsTable thead,
+  #purchasesTable thead {
+    display: none;
+  }
+
+  #garmentsTable tbody,
+  #purchasesTable tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  #garmentsTable tbody tr,
+  #purchasesTable tbody tr {
+    display: block;
+    border: 1px solid var(--color-orange-87);
+    border-top: 1px solid var(--color-orange-87);
+    border-radius: 8px;
+    padding: 16px;
+    background: var(--color-white);
+  }
+
+  #garmentsTable tbody td.admin-table__name {
+    display: block;
+    padding: 0 0 12px;
+    margin-bottom: 4px;
+    font-size: 16px;
+    white-space: normal;
+    border-bottom: 1px solid var(--color-grey-93);
+  }
+
+  /* Purchases: Date / Customer / Material / Supplier read top-to-bottom as
+     a card header block, then Meters / ৳/M / Total are labeled value rows.
+     Scoped to tbody so the tfoot's "Total Purchases" cells (also first-
+     child) don't inherit this per-column styling. */
+  #purchasesTable tbody td:nth-child(1) {
+    display: block;
+    padding: 0;
+    font-size: 12px;
+    color: var(--color-orange-69);
+  }
+
+  #purchasesTable tbody td.admin-table__name {
+    display: block;
+    padding: 2px 0 0;
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  #purchasesTable tbody td:nth-child(3) {
+    display: block;
+    padding: 2px 0 0;
+    font-size: 14px;
+    color: var(--color-grey-10);
+  }
+
+  #purchasesTable tbody td:nth-child(4) {
+    display: block;
+    padding: 2px 0 12px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--color-grey-44);
+    border-bottom: 1px solid var(--color-grey-93);
+  }
+
+  #garmentsTable td[data-label],
+  #purchasesTable td[data-label] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    text-align: right;
+    border-bottom: 1px solid var(--color-grey-93);
+  }
+
+  #garmentsTable td[data-label]::before,
+  #purchasesTable td[data-label]::before {
+    content: attr(data-label);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--color-grey-44);
+  }
+
+  #garmentsTable tbody tr td[data-label]:last-of-type,
+  #purchasesTable tbody tr td[data-label]:last-of-type {
+    border-bottom: none;
+  }
+
+  #purchasesTable tfoot tr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20.8px;
+    background: var(--color-grey-97);
+    border-top: 1px solid var(--color-orange-87);
+  }
+
+  #purchasesTable tfoot td {
+    display: block;
+    width: auto;
+    padding: 0;
+    background: transparent;
+    border-top: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--color-azure-20);
+  }
+
+  #purchasesTable tfoot td.admin-table__total-value {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--color-red-53);
+  }
+
   .navbar__toggle {
     display: flex;
   }
@@ -3936,6 +4745,20 @@ h1, h2, h3, h4 {
     align-items: flex-start;
   }
 
+  .admin-person-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-person-card__actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .admin-form-grid {
+    grid-template-columns: 1fr;
+  }
+
   .auth-section {
     padding-left: 16px;
     padding-right: 16px;
@@ -3972,6 +4795,20 @@ h1, h2, h3, h4 {
 
   .gallery__grid {
     grid-template-columns: 1fr;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .measure-readout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-tab {
+    padding: 7px 10px;
+    font-size: 12.5px;
   }
 
   .hero__title {
